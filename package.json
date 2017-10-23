@@ -1,0 +1,25 @@
+{
+  "name": "rick-morty-portal",
+  "version": "1.0.0",
+  "description": "Useful portal for anytime you need to run errands... interdimensionally",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/chrisgervang/rick-morty-portal",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Chris Gervang",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  },
+  "dependencies": {
+    
+  }
+}
