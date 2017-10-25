@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Portal Gun!</title>
-    <script type="text/javascript" src="http://cdn.jsdelivr.net/particle-api-js/5/particle.min.js">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/particle-api-js/5/particle.min.js">
     </script>
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   </head>
@@ -60,7 +60,7 @@
         console.log("Account Info: ", s)
         var token = s.body.access_token
 
-        document.getElementById("button").addEventListener("touchstart", () => {
+        document.getElementById("button").addEventListener("click", () => {
           var publish = particle.publishEvent({ name: 'video', data: 'in-out', auth: token, isPrivate: true });
 
           publish.then(
