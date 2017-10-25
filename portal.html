@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%;">
+  <head>
+    <meta charset="UTF-8">
+    <title>Portal!</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/particle-api-js/5/particle.min.js">
+    </script>
+  </head>
+  <body style="margin: 0; width: 100%; height: 100%; background-color: #000;">
+    <div style="width: 100%; height: 100%; display: flex;">
+        <video id="video" width="100%">
+          <source src="in_out.mp4" type="video/mp4"/>
+        </video>
+    </div>
+    
+    <script>
+      var particle = new Particle()
+      
+      particle.login({username: "EMAIL", password: "PASSWORD"}).then((s) => {
+        console.log("Account Info: ", s)
+        var token = s.body.access_token
+
+        particle.getEventStream({ deviceId: 'mine', auth: token })
+        .then((stream) => {
+          stream.on('event', (data) => {
+            console.log("Event: ", data)
+            if(data.name === "video") {
+              var video = document.getElementById("video")
+              if(data.data === "in-out" ) {
+                video.style.display = "block"
+                video.src = "in_out.mp4"
+                video.load()
+                video.loop = false
+                video.play()
+              }
+
+              if(data.data === "loop") {
+                video.style.display = "block"
+                video.src = "loop.mp4"
+                video.load()
+                video.loop = true
+                video.play()
+              }
+
+              if(data.data === "stop" ) {
+                video.pause()
+              }
+
+              if(data.data === "off") {
+                video.style.display = "none"
+              }
+            }
+          })
+        })
+        
+        // Use this to find your device ID
+        var devicesPr = particle.listDevices({ auth: token });
+        devicesPr.then(console.log);
+      })
+    </script>
+  </body>
+</html>
