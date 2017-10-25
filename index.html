@@ -20,7 +20,7 @@
         console.log("Account Info: ", s)
         var token = s.body.access_token
 
-        particle.getEventStream({ deviceId: 'YOUR ID', auth: token })
+        particle.getEventStream({ deviceId: 'mine', auth: token })
         .then((stream) => {
           stream.on('event', (data) => {
             console.log("Event: ", data)
