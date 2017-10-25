@@ -60,7 +60,7 @@
         console.log("Account Info: ", s)
         var token = s.body.access_token
 
-        document.getElementById("button").addEventListener("click", () => {
+        document.getElementById("button").addEventListener("touchstart", () => {
           var publish = particle.publishEvent({ name: 'video', data: 'in-out', auth: token, isPrivate: true });
 
           publish.then(
