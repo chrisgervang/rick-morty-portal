@@ -20,6 +20,10 @@
     "electron": "~1.7.8"
   },
   "dependencies": {
-    
+
+  },
+  "engines": {
+    "node": "6.10.0",
+    "npm": "4.0.5"
   }
 }

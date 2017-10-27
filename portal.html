@@ -12,11 +12,11 @@
           <source src="in_out.mp4" type="video/mp4"/>
         </video>
     </div>
-    
+
     <script>
       var particle = new Particle()
-      
-      particle.login({username: "EMAIL", password: "PASSWORD"}).then((s) => {
+
+      particle.login({username: "chrisgervang@gmail.com", password: "halloween2017"}).then((s) => {
         console.log("Account Info: ", s)
         var token = s.body.access_token
 
@@ -52,7 +52,7 @@
             }
           })
         })
-        
+
         // Use this to find your device ID
         var devicesPr = particle.listDevices({ auth: token });
         devicesPr.then(console.log);
